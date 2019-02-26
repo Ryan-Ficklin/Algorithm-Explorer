@@ -1,57 +1,33 @@
-int[] rectHeightList = {25,50,75,100,125,150,175,200};
-boolean sorted = true;
-float randomRectX = random(0, random(0, width));
-randomRectHeightIndicator = (int);
-float randomRectHeightIndicator = random(1, 10);
-int randomRectHeight = rectHeightList[randomRectHeightIndicator];
+int[] rectHeightList = {50, 25, 175, 125, 200, 75, 150, 100};
+boolean sorted = false;
 void setup() {
   size(700, 700);
 }
 
 void draw() {
   background(129, 36, 36);
-  sortedOrNotSorted();
+  //sortedOrNotSorted();
   sortRect();
 }
 
 void mousePressed() {
-  if (sorted == true) {
-    sorted = false;
+  if (sorted == false) {
+    sorted = true;
   }
 }
 
 void initialDraw() {
-  for (int rectX = 0; rectX < width; rectX+=25) {
-    fill(14, 14, 175);
-    rect(rectX, height, 15, rectHeightList[rectX]);
-  }
-}
-
-void randomizeDraw() {
-  for(int i = 0; i < 25; i++){
-  fill(14, 14, 175);
-  rect(randomRectX, height, 15, randomRectHeight);
-  }
 }
 
 void sortedOrNotSorted() {
-  if (sorted == true) {
-    initialDraw();
-  } else {
-    randomizeDraw();
-  }
 }
 
 void sortRect() {
-  int opacity = 255;
-  textSize(25);
-  fill(14, 14, 175, opacity);
-  text("Click to randomize,", 30, 20);
-  text("Press s to sort.", 30, 40);
-  opacity-=10;
-  if (keyPressed) {
-    if (key == 's') {
-      sorted = true;
+  int lowestValue = rectHeightList[0];
+  for (int rectSorter = 1; rectSorter <= rectHeightList.length; rectSorter+=1 ) {
+    if (lowestValue <= rectHeightList[0]) {
+      lowestValue = rectHeightList[0];
+      text(lowestValue, 10, 50);
     }
   }
 }
