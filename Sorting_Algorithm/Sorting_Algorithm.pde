@@ -8,6 +8,7 @@ void draw() {
   background(129, 36, 36);
   //sortedOrNotSorted();
   sortRect();
+  initialDraw();
 }
 
 void mousePressed() {
@@ -17,6 +18,10 @@ void mousePressed() {
 }
 
 void initialDraw() {
+  fill(255);
+  for (int rectShow = 0; rectShow <= rectHeightList.length - 1; rectShow+=1 ) {
+    text(rectHeightList[rectShow], rectShow, 25);
+  }
 }
 
 void sortedOrNotSorted() {
