@@ -1,4 +1,4 @@
-int[] rectHeightList = {25, 50, 175, 125, 200, 75, 150, 100};
+int[] rectHeightList = {50, 25, 175, 125, 200, 75, 150, 100};
 boolean sorted = false;
 void setup() {
   size(700, 700);
@@ -29,10 +29,12 @@ void sortedOrNotSorted() {
 
 void sortRect() {
   int lowestValue = rectHeightList[0];
-  for (int rectSorter = 1; rectSorter <= rectHeightList.length; rectSorter+=1 ) {
-    if (lowestValue <= rectHeightList[rectSorter]) {
-      lowestValue = rectHeightList[0];
-      text(lowestValue, 10, 50);
+  for (int rectSorter = 0; rectSorter <= rectHeightList.length - 1; rectSorter+=1 ) {
+   for (int rectSort = 1; rectSort <= rectSorter; rectSort+=1) {
+      if (lowestValue >= rectHeightList[rectSorter]) {
+        lowestValue = rectHeightList[rectSorter];
+        text(lowestValue, 30*rectSorter + 10, 50);
+      }
     }
   }
 }
