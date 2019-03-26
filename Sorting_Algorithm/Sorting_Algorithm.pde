@@ -24,16 +24,14 @@ void initialDraw() {
   }
 }
 
-void sortedOrNotSorted() {
-}
-
 void sortRect() {
-  int lowestValue = rectHeightList[0];
-  for (int rectSorter = 0; rectSorter <= rectHeightList.length - 1; rectSorter+=1 ) {
-   for (int rectSort = 1; rectSort <= rectSorter; rectSort+=1) {
-      if (lowestValue >= rectHeightList[rectSorter]) {
-        lowestValue = rectHeightList[rectSorter];
-        text(lowestValue, 30*rectSorter + 10, 50);
+  for (int i = 0; i <= rectHeightList.length; i++) {
+    for (int j = 0; j <= rectHeightList.length; j++) {
+      if (i <= j) {
+        int lowTemp = i;
+        rectHeightList[i] = rectHeightList[j];
+        rectHeightList[j] = lowTemp;
+        text(rectHeightList[i], 10 + i*30, 50);
       }
     }
   }
