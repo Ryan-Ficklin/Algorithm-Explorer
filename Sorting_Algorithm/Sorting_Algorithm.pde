@@ -1,4 +1,5 @@
 int[] rectHeightList = {50, 25, 175, 125, 200, 75, 150, 100};
+int[] newRHL = {50, 25, 175, 125, 200, 75, 150, 100};
 boolean sorted = false;
 void setup() {
   size(700, 700);
@@ -25,13 +26,13 @@ void initialDraw() {
 }
 
 void sortRect() {
-  for (int i = 0; i <= rectHeightList.length; i++) {
-    for (int j = 0; j <= rectHeightList.length; j++) {
-      if (i <= j) {
+  for (int i = 0; i < newRHL.length; i++) {
+    for (int j = 1; j < newRHL.length -1; j++) {
+      if (newRHL[i] <= newRHL[j]) {
         int lowTemp = i;
-        rectHeightList[i] = rectHeightList[j];
-        rectHeightList[j] = lowTemp;
-        text(rectHeightList[i], 10 + i*30, 50);
+        newRHL[i] = newRHL[j];
+        newRHL[j] = lowTemp;
+        text(newRHL[i], 10 + i*30, j*20 + 50);
       }
     }
   }
