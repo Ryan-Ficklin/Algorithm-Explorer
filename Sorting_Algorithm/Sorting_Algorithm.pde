@@ -15,6 +15,8 @@ void draw() {
 void mousePressed() {
   if (sorted == false) {
     sorted = true;
+  } else {
+    sorted = false;
   }
 }
 
@@ -40,11 +42,13 @@ void sortRect() {
 
 
 void rects() {
+  fill(12,50,200);
   if (sorted == true) {
     for (int i = 0; i < rectHL.length; i++) {
       rect(rectHL[i]*2, height-25-rectHL[i], 25, rectHL[i]);
     }
-  } else {
+  }
+  if (sorted == false) {
     for (int i = 0; i < rectHL.length; i++) {
       rect(displayOGRect[i]*2, height-25-displayOGRect[i], 25, displayOGRect[i]);
     }
